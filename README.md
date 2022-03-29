@@ -19,5 +19,15 @@ These are the main identifier for the type of changes being pushed. They are as 
  - feat --- A feature branch
  - hotfix --- Hotfix changes for production issues
  - bugfix --- A bugfix branch
- - chore --- Cleaning up / organizing code
+ - clnup --- Cleaning up / organizing code
  - wip --- Branched out for some work in progress that must be pushed
+
+## Labels
+Apply appropriate labels to created issues:
+- clnup --- documentation or code cleanup
+- feat --- new feature
+- in progress --- currently being worked on
+- blocked --- issue blocked by another issue
+- bugfix --- something isn't working
+- hotfix --- changes for production issues
+- help wanted --- help wanted
