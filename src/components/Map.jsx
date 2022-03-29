@@ -17,15 +17,15 @@ function Map() {
   useEffect(() => {
     let tileArr = [];
     let point = {
-      x: 0,
-      y: 0
+      x: Math.floor(Math.random()*281),
+      y: Math.floor(Math.random()*281)
     }
     for (let i = 1; i <= maxTiles; i++) {
       tileArr.push(point);
       // choose direction
       point = {
         x: tileArr[i-1].x + 20,
-        y: 0
+        y: tileArr[i-1].y
       }
     }
 
