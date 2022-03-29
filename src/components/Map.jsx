@@ -5,14 +5,15 @@ import { useState, useEffect } from "react";
 function Map() {
   const [ tiles, setTiles ] = useState([]);
 
-  const dirs = {
+  const dirOffset = {
     'n': {x: 0, y: -1},
     'e': {x: 1, y: 0},
     's': {x: 0, y: 1},
     'w': {x: -1, y: 0}
   }
 
-  const maxTiles = 15;
+  const dirs = ['n', 'e', 's', 'w'];
+  const maxTiles = 5;
 
   useEffect(() => {
     let tileArr = [];
@@ -23,10 +24,13 @@ function Map() {
     for (let i = 1; i <= maxTiles; i++) {
       tileArr.push(point);
       // choose direction
-      point = {
-        x: tileArr[i-1].x + 20,
-        y: tileArr[i-1].y
-      }
+      const direction = dirs[Math.floor(Math.random()*dirs.length)];
+      console.log(direction);
+      const x = tileArr[i-1].x + 20*dirOffset[direction].x;
+      const y = tileArr[i-1].y + 20*dirOffset[direction].y;
+      console.log(x)
+      console.log(y)
+      point = {x,y};
     }
 
     setTiles(tileArr);
