@@ -1,6 +1,6 @@
 import Map from "./components/Map";
 
-function App() {
+function Game() {
   return (
     <div className="App">
       <Map />
@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default Game;
