@@ -1,7 +1,7 @@
-import "../styles/player.css";
+import "./hero.css";
 
 
-function Player({ p: { position } }) {
+export default function Hero({ p: { position } }) {
   const left = position.x + ((20 - 15) / 2);
   const top = position.y + ((20 - 15) / 2);
   return (
@@ -13,5 +13,3 @@ function Player({ p: { position } }) {
     </div>
   )
 }
-
-export default Player;

@@ -1,4 +1,4 @@
-import "../styles/tile.css";
+import "./tile.css";
 
 
 function Tile({ data }) {
