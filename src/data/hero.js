@@ -1,4 +1,4 @@
-export const createHero = () => {
+export default function createHero() {
   return {
     name: "Kevin",
     position: {

@@ -1,18 +1,22 @@
-import { useEffect, useState } from "react";
-import Map from "./components/Map";
-import { createHero } from "./utils/hero";
+// React
+import { useState } from "react";
+
+// UI
+import Room from "./ui/Room/Room";
+
+// JS
+import createHero from "./data/hero";
+import createRoom from "./data/room";
 
 function Game() {
-  const [ player, setPlayer ] = useState(createHero());
-
-  // create a player on load
-  // useEffect(() => {
-  //   setPlayer(new Player());
-  // }, [])
+  // eslint-disable-next-line
+  const [ hero, setHero ] = useState(createHero());
+  // eslint-disable-next-line
+  const [ room, setRoom ] = useState(createRoom(10));
 
   return (
     <div className="App">
-      <Map player={player} />
+      <Room data={room} />
     </div>
   );
 }
