@@ -1,5 +1,6 @@
 import "../styles/map.css";
 import Tile from "../components/Tile";
+import Player from "./Player";
 import { useState, useEffect } from "react";
 import { 
   createGenesisTile, 
@@ -8,8 +9,7 @@ import {
   chooseRandomTile
 } from "../utils/tiles";
 
-const createMap = (numTiles) => {
-  let genesisTile = createGenesisTile();
+const createMap = (genesisTile, numTiles) => {
   tileArr.push(genesisTile);
 
   for (let i = 1; i < numTiles; i++) {
@@ -23,13 +23,15 @@ const createMap = (numTiles) => {
   return tileArr;
 }
 
-function Map() {
+function Map({ player }) {
   const [ map, setMap ] = useState([]);
   const maxTiles = 10;  
 
   useEffect(() => {
-    setMap(createMap(maxTiles));
-  }, [])
+    let genesisTile = createGenesisTile();
+    player.position = genesisTile;
+    setMap(createMap(genesisTile, maxTiles));
+  }, [player])
 
   // TODO: set tile size based on window size
   // TODO: set maxTiles based on map size
@@ -39,6 +41,7 @@ function Map() {
       {
         map.map((tile, ndx) => <Tile data={tile} key={ndx} />)
       }
+      <Player p={player} />
     </div>
   )
 }
