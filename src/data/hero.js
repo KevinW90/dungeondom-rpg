@@ -1,9 +1,10 @@
-export default function createHero() {
-  return {
-    name: "Kevin",
-    position: {
-      x: 0,
-      y: 0
-    }
+export default function createHero(heroData) {
+  return new Hero(heroData);
+}
+
+class Hero {
+  constructor(_data) {
+    this.name = _data.name;
+    this.position = _data.position;
   }
 }
