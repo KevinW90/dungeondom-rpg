@@ -1,0 +1,12 @@
+.game-container {
+  position: relative;
+  width: 256px;
+  height: 144px;
+
+  outline: 1px solid white;
+
+  margin: 0 auto;
+  margin-top: 200px;
+
+  transform: scale(3);
+}
