@@ -1,4 +1,3 @@
-const tileSize = 16;
 const dirOffsets = {
   'n': {x: 0, y: -1},
   'e': {x: 1, y: 0},
@@ -7,14 +6,12 @@ const dirOffsets = {
 }
 
 export default function createTileMap(rows, cols) {
-  console.log('creating map with ', rows, ' rows and ', cols, ' cols');
+  // create a new 0-filled array
   let tileMap = Array.from({length: rows}, _ => new Array(cols).fill(0));
-  console.log(tileMap)
 
   // create a genesis tile
   let genR = Math.floor(Math.random() * rows);
   let genC = Math.floor(Math.random() * cols);
-  console.log('genesis: ', genR, genC)
   tileMap[genR][genC] = 1;
 
   // create as many tiles as needed
@@ -23,9 +20,7 @@ export default function createTileMap(rows, cols) {
   let curC = genC;
   for (let i = 1; i < maxTiles; i++) {  
     let neighbors = checkOpenNeighbors(curR, curC, tileMap);
-    console.log('neighbors for [', curR, ',', curC, ']', neighbors)
     while (!neighbors.length) {
-      console.log('no neighbors')
       let [ r, c ] = chooseRandomTile(tileMap)
       neighbors = checkOpenNeighbors(r, c, tileMap);
     }
@@ -37,13 +32,6 @@ export default function createTileMap(rows, cols) {
   // return the created room
   return tileMap;
 }
-
-// const createTile = () => {
-//   return {
-//     x: Math.floor(Math.random()*(mw - tileSize + 1)),
-//     y: Math.floor(Math.random()*(mh - tileSize + 1))
-//   }
-// }
 
 const chooseRandomTile = (arr) => {
   let ranR = Math.floor(Math.random() * arr.length);
@@ -59,7 +47,7 @@ const chooseRandomTile = (arr) => {
 const checkOpenNeighbors = (r, c, arr) => {
   let openNeighbors = [];
   
-  for (const [ dir, offset] of Object.entries(dirOffsets)) {
+  for (const offset of Object.values(dirOffsets)) {
     let nr = r + offset.y;
     let nc = c + offset.x;
     if (
